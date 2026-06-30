@@ -1,0 +1,328 @@
+/* landing.css - Editorial Agency / Minimalist Aesthetic */
+
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --text-tertiary: #999999;
+  
+  --spacing-section: 100px;
+  --spacing-element: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0, 0, 1), transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+.serif-italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Navigation */
+.nav-header {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 120px 0 var(--spacing-section);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.hero-section h1 {
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 1.05;
+  max-width: 1100px;
+  margin-bottom: 40px;
+}
+
+.hero-desc {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 64px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 16px 32px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+.scroll-cue {
+  margin-top: 120px;
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background-color: var(--text-tertiary);
+}
+
+/* Sections Global */
+.section {
+  padding: var(--spacing-section) 0;
+}
+
+/* Built on Convictions Section */
+.convictions-section {
+  background: linear-gradient(180deg, #ebedee 0%, #ffffff 100%);
+}
+.convictions-section h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: 80px;
+  max-width: 800px;
+}
+
+.convictions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 80px 40px;
+}
+
+.conviction-block h3 {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.conviction-block p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Process Section */
+.process-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f9f8fc 100%);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  margin-top: 80px;
+}
+
+.process-block .numeral {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1;
+  color: var(--text-primary);
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.process-block h3 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.process-block p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Core Expertise Section */
+.expertise-section {
+  background: linear-gradient(135deg, #f9f8fc 0%, #f6f8fb 100%);
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 100px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.section-header-row h2 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 0;
+  max-width: 600px;
+  line-height: 1.1;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 80px;
+  row-gap: 64px;
+}
+
+.expertise-item h3 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.expertise-item p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+/* Stack & Security */
+.stack-section {
+  background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 100%);
+}
+
+.stack-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 120px;
+  align-items: center;
+}
+
+.stack-list {
+  list-style: none;
+}
+
+.stack-list li {
+  font-size: 1.5rem;
+  font-family: var(--font-serif);
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e5e5e5;
+  color: var(--text-primary);
+}
+
+.stack-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.stack-illustration {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Closing CTA */
+.cta-section {
+  padding: 160px 0;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 0%, #fdfbfb 50%, #ebedee 100%);
+}
+
+.cta-section h2 {
+  font-size: clamp(3rem, 6vw, 6rem);
+  margin-bottom: 64px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.1;
+}
+
+/* Footer */
+.footer {
+  padding: 60px 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ebedee;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+  .stack-layout {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-section: 120px;
+  }
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-section {
+    padding-top: 60px;
+  }
+}

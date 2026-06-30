@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuditQuery — Document Simplifier & RAG Agent</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Markdown parser + XSS sanitizer for answer rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- Left Sidebar: Document Indexing & Management -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="app-logo">📄</div>
+        <div>
+          <h2>AuditQuery</h2>
+          <span class="status-indicator">Local CPU Embeddings</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>1. Ingest PDF Documents</h3>
+        <p class="section-help">Upload tax standards, circulars, or audit reports to index them into local database.</p>
+        
+        <form id="upload-form" class="upload-area">
+          <input type="file" id="file-input" multiple accept=".pdf" style="display: none;">
+          <div class="drop-zone" id="drop-zone">
+            <span class="drop-icon">📤</span>
+            <span class="drop-text">Click or drag PDFs here</span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="upload-btn" disabled>Index & Sync Files</button>
+        </form>
+        <div id="upload-status" class="status-msg"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Active Knowledge Base</h3>
+        <p class="section-help">Currently indexed documents available for query context:</p>
+        <ul id="doc-list" class="doc-list">
+          <li class="doc-placeholder">No documents indexed yet</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Section: Q&A Workspace -->
+    <main class="main-workspace">
+      <header class="workspace-header">
+        <h1>Simplify Regulatory Text</h1>
+        <p class="subtitle">Ask questions, and the agent will return a plain-English explanation grounded in the indexed standards.</p>
+      </header>
+
+      <section class="qa-container">
+        
+        <!-- Query Input Form -->
+        <form id="query-form" class="query-area">
+          <textarea id="query-input" placeholder="e.g., What are the criteria for GST audit under section 35(5)?" rows="3" required></textarea>
+          <div class="query-actions">
+            <div class="param-selector">
+              <label for="top-k">Retrieve context depth:</label>
+              <select id="top-k">
+                <option value="3">3 Chunks</option>
+                <option value="4" selected>4 Chunks (Recommended)</option>
+                <option value="6">6 Chunks</option>
+                <option value="8">8 Chunks</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-accent" id="query-btn">Ask AuditQuery</button>
+          </div>
+        </form>
+
+        <!-- Response Panels (Shown dynamically) -->
+        <div id="response-panel" class="response-panel" style="display: none;">
+          
+          <div class="answer-card">
+            <h3>Simplified Explanation</h3>
+            <div id="answer-text" class="answer-text"></div>
+          </div>
+
+          <div class="citations-card">
+            <h3>Grounded Document Citations</h3>
+            <p class="section-help">The explanation above is bound to these precise retrieved contexts:</p>
+            <div id="citations-list" class="citations-list"></div>
+          </div>
+
+        </div>
+
+      </section>
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuditQuery — Document Simplifier & RAG Agent</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+  <div class="container">
+    <header class="nav-header">
+      <div class="logo">AuditQuery.</div>
+    </header>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container reveal">
+      <h1>Audit & Tax, <br><span class="serif-italic">understood instantly.</span></h1>
+      <p class="hero-desc">
+        A production-grade RAG pipeline engineered to ingest complex tax regulations and corporate reports. It translates dense legal clauses into plain English, backed by precise citations.
+      </p>
+      
+      <div>
+        <button class="btn-primary" onclick="window.location.href='/app'">Launch Workspace</button>
+      </div>
+
+      <div class="scroll-cue">
+        <div class="scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+  </section>
+
+  <!-- Built on Convictions Section -->
+  <section class="section convictions-section">
+    <div class="container reveal">
+      <h2 class="serif-italic">Built on Grounded Answers</h2>
+      
+      <div class="convictions-grid">
+        <div class="conviction-block">
+          <h3>Grounded, not guessed</h3>
+          <p>The system is strictly confined to the retrieved text context. If the information is not in the document, it refuses to answer rather than hallucinating.</p>
+        </div>
+        <div class="conviction-block">
+          <h3>Cited, not trusted blindly</h3>
+          <p>Every generated claim is backed by inline citations mapping directly to the exact page and source file, enforcing transparency at scale.</p>
+        </div>
+        <div class="conviction-block">
+          <h3>Local-first, not rate-limited</h3>
+          <p>Relying on a local, pure-Python fallback database and sentence-transformer embeddings ensures that vectorization never bottlenecks your workflow.</p>
+        </div>
+        <div class="conviction-block">
+          <h3>Built for real documents, not toy demos</h3>
+          <p>Custom sliding-window character chunks respect word boundaries, ensuring critical financial figures and legal clauses remain intact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section process-section">
+    <div class="container reveal">
+      
+      <div class="process-grid">
+        <div class="process-block">
+          <div class="numeral">01</div>
+          <h3>Parse & Chunk</h3>
+          <p>Incoming PDFs undergo page-by-page extraction. A custom character-based sliding window algorithm splits text precisely on word boundaries to preserve semantic density.</p>
+        </div>
+        
+        <div class="process-block">
+          <div class="numeral">02</div>
+          <h3>Embed & Retrieve</h3>
+          <p>Text segments are immediately vectorized using all-MiniLM and stored locally. User queries undergo the same process to retrieve top-matching document contexts via cosine similarity.</p>
+        </div>
+
+        <div class="process-block">
+          <div class="numeral">03</div>
+          <h3>Generate & Cite</h3>
+          <p>Retrieved passages are injected into the Gemini context window under strict instruction sets. Responses are returned in natural English, fully annotated with file and page references.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Core Expertise Grid -->
+  <section class="section expertise-section">
+    <div class="container reveal">
+      <div class="section-header-row">
+        <h2>Core <br><span class="serif-italic">Expertise</span></h2>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="expertise-item">
+          <h3>Intelligent Parsing</h3>
+          <p>Extracts text page-by-page, ignoring empty scans, and preserves semantic layout.</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Incremental Syncing</h3>
+          <p>Delta-comparisons ensure only new or modified documents are processed. Unchanged files are skipped.</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Dual-Layer Vector Store</h3>
+          <p>Primary ChromaDB store seamlessly falls back to a pure NumPy implementation for total reliability.</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Local Embeddings</h3>
+          <p>Utilizing local CPU inference to generate dense vectors without external API calls.</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Resilient Orchestration</h3>
+          <p>Automated exponential backoff handling prevents rate-limit failures during generation bursts.</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Transparent Verification</h3>
+          <p>Complete traceability from LLM output back to the original source document line.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack & Security Section -->
+  <section class="section stack-section">
+    <div class="container reveal">
+      <div class="stack-layout">
+        <div class="stack-text">
+          <h2 class="serif-italic" style="margin-bottom: 60px; font-size: 3rem;">Technical Principles</h2>
+          <ul class="stack-list">
+            <li>Zero External Dependencies for Retrieval</li>
+            <li>Dual-Layer Vector Store Architecture</li>
+            <li>Grounded Inference Pipelines</li>
+            <li>Local CPU Embeddings</li>
+          </ul>
+        </div>
+        
+        <!-- Minimal abstract SVG representing architecture -->
+        <div class="stack-visual">
+          <svg class="stack-illustration" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="500" height="500" fill="#ffffff" />
+            <!-- Clean abstract geometry -->
+            <line x1="100" y1="100" x2="400" y2="100" stroke="#000000" stroke-width="2" />
+            <line x1="100" y1="250" x2="400" y2="250" stroke="#000000" stroke-width="2" />
+            <line x1="100" y1="400" x2="400" y2="400" stroke="#000000" stroke-width="2" />
+            
+            <circle cx="150" cy="100" r="10" fill="#000000" />
+            <circle cx="350" cy="100" r="10" fill="#000000" />
+            
+            <circle cx="250" cy="250" r="15" fill="#000000" />
+            
+            <rect x="230" y="380" width="40" height="40" stroke="#000000" stroke-width="2" fill="none" />
+            
+            <line x1="150" y1="100" x2="250" y2="250" stroke="#000000" stroke-width="1.5" stroke-dasharray="4 4" />
+            <line x1="350" y1="100" x2="250" y2="250" stroke="#000000" stroke-width="1.5" stroke-dasharray="4 4" />
+            <line x1="250" y1="250" x2="250" y2="380" stroke="#000000" stroke-width="2" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="cta-section">
+    <div class="container reveal">
+      <h2>Transform density into <span class="serif-italic">clarity.</span></h2>
+      <button class="btn-primary" onclick="window.location.href='/app'">Launch Workspace</button>
+    </div>
+  </section>
+
+  <footer class="footer container reveal">
+    <div>AuditQuery Systems.</div>
+    <div>&copy; 2026. All rights reserved.</div>
+  </footer>
+
+  <!-- Scroll Animations -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

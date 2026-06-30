@@ -1,0 +1,25 @@
+# Environment variables
+.env
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+
+# Vector Stores and Local Data
+vector_store*/
+chroma_db/
+indexed_files.json
+uploads/
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
