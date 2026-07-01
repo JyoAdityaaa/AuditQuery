@@ -41,9 +41,9 @@ This will spin up a local development server. Automatically open the Audit Query
 - **Extraction:** Powered by `pypdf` which extracts text page-by-page. Pages containing no extractable text are flagged to prevent scanned/image-only PDFs from causing silent failures.
 - **Chunking:** Pages are split using a custom character-based sliding window of **800 characters with 150 characters of overlap**. The chunker searches backwards for word boundaries (spaces, newlines) at the end of each slice to ensure that key financial figures, section numbers, or legal clauses are not split in half.
 
-### 2. Embeddings & Unified GenAI SDK
-- We use the **current, non-deprecated unified Google GenAI Python SDK (`google-genai`)** rather than the deprecated `google-generativeai` package.
-- Chunks are embedded using Google's stable embedding model: **`gemini-embedding-001`**.
+### 2. Local Embeddings & Unified GenAI SDK
+- We use the **current, non-deprecated unified Google GenAI Python SDK (`google-genai`)** rather than the deprecated `google-generativeai` package for final generation.
+- To prevent exhausting free-tier Google API limits and maximize processing speed, document text chunks are embedded **locally on your CPU** using the lightweight HuggingFace `SentenceTransformer` model: **`all-MiniLM-L6-v2`**.
 
 ### 3. Dual-Layer Vector Storage (ChromaDB + Fallback)
 - **Primary Database:** ChromaDB is configured to run locally as a persistent store (`./vector_store_chroma`) using `cosine` distance.
